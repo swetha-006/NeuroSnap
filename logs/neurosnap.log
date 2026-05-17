@@ -561,3 +561,27 @@ Then: python run.py
 2026-05-18 01:57:26,698 INFO werkzeug: 127.0.0.1 - - [18/May/2026 01:57:26] "GET / HTTP/1.1" 200 -
 2026-05-18 01:57:27,016 INFO werkzeug: 127.0.0.1 - - [18/May/2026 01:57:27] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
 2026-05-18 01:57:27,046 INFO werkzeug: 127.0.0.1 - - [18/May/2026 01:57:27] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-18 02:12:52,241 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-18 02:12:52,242 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-18 02:12:52,245 INFO werkzeug:  * Restarting with stat
+2026-05-18 02:12:52,731 WARNING werkzeug:  * Debugger is active!
+2026-05-18 02:12:52,735 INFO werkzeug:  * Debugger PIN: 120-265-042
+2026-05-18 02:12:56,976 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:12:56] "GET / HTTP/1.1" 200 -
+2026-05-18 02:12:57,284 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:12:57] "GET /static/neurosnap.css HTTP/1.1" 200 -
+2026-05-18 02:12:57,316 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:12:57] "GET /static/neurosnap.js HTTP/1.1" 200 -
+2026-05-18 02:13:08,922 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:08] "GET / HTTP/1.1" 200 -
+2026-05-18 02:13:08,961 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:08] "GET /static/neurosnap.css HTTP/1.1" 200 -
+2026-05-18 02:13:09,181 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:09] "GET /static/neurosnap.js HTTP/1.1" 200 -
+2026-05-18 02:13:41,985 WARNING tensorflow: From F:\Neuro_Snap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-18 02:13:44,565 WARNING tensorflow: From F:\Neuro_Snap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-18 02:13:44,605 WARNING tensorflow: From F:\Neuro_Snap\venv\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+2026-05-18 02:13:47,255 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:47] "POST /predict HTTP/1.1" 200 -
+2026-05-18 02:13:47,341 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:47] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-18 02:13:47,346 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:47] "GET /static/uploads/20260517204327-f2a23182-43_no.jpg HTTP/1.1" 200 -
+2026-05-18 02:13:47,644 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:13:47] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
