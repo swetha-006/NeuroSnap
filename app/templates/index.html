@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="ns-hero text-center">
+  <div class="container position-relative">
+    <div class="hero-emoji">🧠</div>
+    <h1>NeuroSnap</h1>
+    <p class="tagline mb-0">AI-powered Brain Tumor Detection &mdash; Upload an MRI scan for an instant CNN prediction</p>
+  </div>
+</section>
+
+<div class="container py-4 container-max-820">
+
+  <!-- Upload card -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-3">Upload an MRI Scan</h5>
+    <form id="uploadForm" method="post" action="{{ url_for('main.predict') }}" enctype="multipart/form-data">
+
+      <div class="upload-zone mb-3" id="uploadZone" role="button"
+           aria-label="Drag and drop an MRI image here or click to browse">
+        <span class="upload-icon">🩻</span>
+        <p id="uploadHint" class="text-muted mb-1 fw-medium">Drag &amp; drop your MRI image here</p>
+        <p class="text-muted small mb-0">or click to browse &mdash; JPG, PNG, BMP supported</p>
+        <input type="file" id="imageInput" name="image"
+               accept=".jpg,.jpeg,.png,.bmp"
+               title="Select an MRI scan image"
+               aria-label="MRI scan image file input"
+               required>
+      </div>
+
+      <div id="previewWrap" class="text-center mb-3">
+        <img id="previewImg" src="" alt="MRI preview" class="img-fluid">
+        <p class="text-muted small mt-1 mb-0">Preview — image will be analysed after submission</p>
+      </div>
+
+      <div class="text-center">
+        <button id="analyseBtn" class="btn-analyse" type="submit"
+                title="Analyse the uploaded MRI scan">
+          🔍 Analyse MRI
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Recent scan history -->
+  <div class="ns-card p-4 fade-in">
+    <h5 class="fw-semibold mb-3">Recent Scans</h5>
+    {% if scan_history %}
+      <div class="table-responsive">
+        <table class="table ns-table mb-0" aria-label="Recent scan history">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">File</th>
+              <th scope="col">Result</th>
+              <th scope="col">Confidence</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for scan in scan_history %}
+            <tr>
+              <td class="text-muted small">{{ loop.index }}</td>
+              <td class="small text-truncate truncate-max-160" title="{{ scan.filename }}">
+                {{ scan.filename }}
+              </td>
+              <td>
+                {% if 'Tumor' in scan.result %}
+                  <span class="pill-tumor">⚠️ {{ scan.result }}</span>
+                {% else %}
+                  <span class="pill-normal">✅ {{ scan.result }}</span>
+                {% endif %}
+              </td>
+              <td class="fw-semibold">{{ scan.confidence }}%</td>
+              <td class="text-muted small">{{ scan.timestamp }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <div class="ei">🩻</div>
+        <p class="mt-2 mb-0">No scans yet — upload an MRI image above to get started.</p>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

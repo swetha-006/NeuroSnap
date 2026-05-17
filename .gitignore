@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+env/
+
+# Dataset (too large for GitHub)
+data/
+
+# Trained model (large file)
+saved_model/
+*.h5
+
+# Flask uploads
+static/uploads/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Plots (regenerated on training)
+static/*.png

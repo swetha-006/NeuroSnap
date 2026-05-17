@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="ns-page-header text-center">
+  <div class="container">
+    <h2>ℹ️ About NeuroSnap</h2>
+    <p class="mb-0 opacity-75 small">CNN-based brain tumor detection — project overview</p>
+  </div>
+</section>
+
+<div class="container py-4 container-max-900">
+
+  <!-- Project description -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-2">🧠 Project Overview</h5>
+    <p class="mb-2">
+      <strong>NeuroSnap</strong> is a deep learning system that classifies brain MRI scans as
+      <em>Tumor Detected</em> or <em>Normal Brain</em> using a Convolutional Neural Network (CNN)
+      trained on real MRI images. The model is served through a Flask web application, enabling
+      instant predictions from any browser.
+    </p>
+    <p class="mb-0 text-muted small">
+      Built as a Deep Learning mini-project by a CyberSecurity student. For educational purposes only.
+    </p>
+  </div>
+
+  <!-- CNN Architecture -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-3">🏗️ CNN Architecture</h5>
+    <div class="cnn-flow mb-3">
+      <div class="cnn-block cb-input">Input<br><small>128×128×3</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-conv">Conv2D<br><small>32 filters</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-pool">MaxPool<br><small>2×2</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-conv">Conv2D<br><small>64 filters</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-pool">MaxPool<br><small>2×2</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-conv">Conv2D<br><small>128 filters</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-pool">MaxPool<br><small>2×2</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-dense">Flatten<br>Dense 256</div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-drop">Dropout<br><small>0.5</small></div>
+      <span class="cnn-arrow">→</span>
+      <div class="cnn-block cb-out">Softmax<br><small>2 classes</small></div>
+    </div>
+    <div class="row g-2 text-center small text-muted">
+      <div class="col-4"><strong>Optimizer:</strong> Adam</div>
+      <div class="col-4"><strong>Loss:</strong> Categorical Crossentropy</div>
+      <div class="col-4"><strong>Epochs:</strong> 25 &nbsp;|&nbsp; Batch: 32</div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-4">⚙️ How It Works</h5>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-circle">📤</div>
+        <div class="step-label">Upload</div>
+        <div class="step-sub">MRI image via browser</div>
+      </div>
+      <span class="step-arrow">→</span>
+      <div class="step-item">
+        <div class="step-circle">🔧</div>
+        <div class="step-label">Preprocess</div>
+        <div class="step-sub">Resize 128×128, normalise</div>
+      </div>
+      <span class="step-arrow">→</span>
+      <div class="step-item">
+        <div class="step-circle">🧠</div>
+        <div class="step-label">CNN</div>
+        <div class="step-sub">Feature extraction</div>
+      </div>
+      <span class="step-arrow">→</span>
+      <div class="step-item">
+        <div class="step-circle">📊</div>
+        <div class="step-label">Predict</div>
+        <div class="step-sub">Softmax classification</div>
+      </div>
+      <span class="step-arrow">→</span>
+      <div class="step-item">
+        <div class="step-circle">✅</div>
+        <div class="step-label">Result</div>
+        <div class="step-sub">Label + confidence score</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-3">🛠️ Technology Stack</h5>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="tech-badge">🐍 Python 3.8+</span>
+      <span class="tech-badge">🔶 TensorFlow 2.x</span>
+      <span class="tech-badge">⚡ Keras</span>
+      <span class="tech-badge">👁️ OpenCV</span>
+      <span class="tech-badge">🌐 Flask</span>
+      <span class="tech-badge">🔢 NumPy</span>
+      <span class="tech-badge">📊 Matplotlib</span>
+      <span class="tech-badge">🔬 scikit-learn</span>
+      <span class="tech-badge">🖼️ Pillow</span>
+    </div>
+  </div>
+
+  <!-- Dataset -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-3">📂 Dataset</h5>
+    <p class="mb-2">
+      <strong>Source:</strong>
+      <a href="https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection"
+         target="_blank" rel="noopener noreferrer">
+        Kaggle — Brain MRI Images for Brain Tumor Detection
+      </a>
+    </p>
+    <div class="table-responsive">
+      <table class="table table-sm ns-table mb-0" aria-label="Dataset summary">
+        <thead>
+          <tr><th scope="col">Class</th><th scope="col">Folder</th><th scope="col">Images</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="pill-tumor">Tumor</span></td><td><code>data/tumor/</code></td><td>155</td></tr>
+          <tr><td><span class="pill-normal">Normal</span></td><td><code>data/no_tumor/</code></td><td>98</td></tr>
+          <tr class="fw-semibold"><td>Total</td><td></td><td>253</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="ns-card p-4 mb-4 fade-in">
+    <h5 class="fw-semibold mb-3">📈 Model Results</h5>
+    <div class="row g-2 text-center">
+      <div class="col-4">
+        <div class="stat-card sc-navy py-3">
+          <div class="stat-val">~95%</div>
+          <div class="stat-label">Training Accuracy</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="stat-card sc-accent py-3">
+          <div class="stat-val">~90%</div>
+          <div class="stat-label">Validation Accuracy</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="stat-card sc-success py-3">
+          <div class="stat-val">~89%</div>
+          <div class="stat-label">Test Accuracy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="alert alert-warning fade-in" role="alert">
+    <strong>⚠️ Disclaimer:</strong> NeuroSnap is built for <strong>educational and research purposes only</strong>.
+    It is <strong>not</strong> a certified medical device and must <strong>not</strong> be used for clinical
+    diagnosis or treatment decisions. Always consult a qualified medical professional.
+  </div>
+
+</div>
+{% endblock %}

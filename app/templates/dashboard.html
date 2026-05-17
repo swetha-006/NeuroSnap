@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="ns-page-header text-center">
+  <div class="container">
+    <h2>📊 Dashboard</h2>
+    <p class="mb-0 opacity-75 small">Session scan statistics &amp; activity</p>
+  </div>
+</section>
+
+<div class="container py-4 container-max-1100">
+
+  <!-- Stat cards -->
+  {# BUG FIX: 'containing' is not a valid Jinja2 test; use a loop-count approach instead #}
+  {% set total  = scan_history | length %}
+  {% set tumors = namespace(count=0) %}
+  {% for s in scan_history %}{% if 'Tumor' in s.result %}{% set tumors.count = tumors.count + 1 %}{% endif %}{% endfor %}
+  {% set normals = total - tumors.count %}
+  {% set avg_conf = (scan_history | map(attribute='confidence') | map('float') | sum / total) | round(1) if total > 0 else 0 %}
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+      <div class="stat-card sc-navy fade-in">
+        <div class="stat-val">{{ total }}</div>
+        <div class="stat-label">Total Scans</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="stat-card sc-danger fade-in">
+        <div class="stat-val">{{ tumors.count }}</div>
+        <div class="stat-label">Tumor Cases</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="stat-card sc-success fade-in">
+        <div class="stat-val">{{ normals }}</div>
+        <div class="stat-label">Normal Cases</div>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="stat-card sc-accent fade-in">
+        <div class="stat-val">{{ avg_conf }}%</div>
+        <div class="stat-label">Avg Confidence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts row -->
+  <div class="row g-3 mb-4">
+
+    <!-- Doughnut -->
+    <div class="col-md-4">
+      <div class="ns-card p-4 h-100 fade-in text-center">
+        <h6 class="fw-semibold mb-3">Tumor vs Normal</h6>
+        {% if total > 0 %}
+          <canvas id="doughnutChart" height="220" aria-label="Doughnut chart: tumor vs normal ratio"></canvas>
+        {% else %}
+          <div class="empty-state"><div class="ei">📊</div><p class="mt-2 mb-0 small">No data yet</p></div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Line chart -->
+    <div class="col-md-8">
+      <div class="ns-card p-4 h-100 fade-in">
+        <h6 class="fw-semibold mb-3">Scan Activity (confidence over time)</h6>
+        {% if total > 0 %}
+          <canvas id="lineChart" height="220" aria-label="Line chart: confidence scores over time"></canvas>
+        {% else %}
+          <div class="empty-state"><div class="ei">📈</div><p class="mt-2 mb-0 small">No data yet</p></div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Recent scans table -->
+  <div class="ns-card p-4 fade-in">
+    <h6 class="fw-semibold mb-3">All Scans This Session</h6>
+    {% if scan_history %}
+      <div class="table-responsive">
+        <table class="table ns-table mb-0" aria-label="All scans this session">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Filename</th>
+              <th scope="col">Result</th>
+              <th scope="col">Confidence</th>
+              <th scope="col">Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for scan in scan_history %}
+            <tr>
+              <td class="text-muted small">{{ loop.index }}</td>
+              <td class="small text-truncate truncate-max-200" title="{{ scan.filename }}">
+                {{ scan.filename }}
+              </td>
+              <td>
+                {% if 'Tumor' in scan.result %}
+                  <span class="pill-tumor">⚠️ {{ scan.result }}</span>
+                {% else %}
+                  <span class="pill-normal">✅ {{ scan.result }}</span>
+                {% endif %}
+              </td>
+              <td class="fw-semibold">{{ scan.confidence }}%</td>
+              <td class="text-muted small">{{ scan.timestamp }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <div class="ei">🩻</div>
+        <p class="mt-2 mb-0">No scans recorded this session yet.</p>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if scan_history %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script nonce="{{ csp_nonce }}">
+(function () {
+  var history = {{ scan_history | tojson }};
+
+  /* Doughnut */
+  var tumors  = history.filter(function(s){ return s.result.indexOf('Tumor') !== -1; }).length;
+  var normals = history.length - tumors;
+  new Chart(document.getElementById('doughnutChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Tumor', 'Normal'],
+      datasets: [{
+        data: [tumors, normals],
+        backgroundColor: ['#e53935', '#43a047'],
+        borderWidth: 0,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      cutout: '68%',
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: 'Poppins' }, padding: 16 } }
+      }
+    }
+  });
+
+  /* Line chart */
+  var labels = history.map(function(s, i){ return '#' + (i + 1) + ' ' + s.filename.substring(0, 10); });
+  var confs  = history.map(function(s){ return parseFloat(s.confidence); });
+  var colors = history.map(function(s){ return s.result.indexOf('Tumor') !== -1 ? '#e53935' : '#43a047'; });
+
+  new Chart(document.getElementById('lineChart'), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Confidence %',
+        data: confs,
+        borderColor: '#1a237e',
+        backgroundColor: 'rgba(26,35,126,0.08)',
+        pointBackgroundColor: colors,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        tension: 0.35,
+        fill: true
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          min: 0, max: 100,
+          ticks: { callback: function(v){ return v + '%'; }, font: { family: 'Poppins' } },
+          grid: { color: 'rgba(0,0,0,0.05)' }
+        },
+        x: {
+          ticks: { font: { family: 'Poppins', size: 10 }, maxRotation: 30 },
+          grid: { display: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx){ return ' ' + ctx.parsed.y + '% confidence'; }
+          }
+        }
+      }
+    }
+  });
+})();
+</script>
+{% endif %}
+{% endblock %}
