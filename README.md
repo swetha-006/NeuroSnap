@@ -245,7 +245,13 @@ pip install -r requirements.txt
 # 6. Train the model
 python -m model.train
 
-# 7. Run the app
+# 7. keras setup
+pip install tf_keras
+
+# 8. convertor
+ python convert_model.py       
+
+# 9. Run the app
 python run.py
 ```
 
