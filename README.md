@@ -1,99 +1,132 @@
-# 🧠 Brain Tumor Detection using Deep Learning
+<div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?style=flat-square&logo=tensorflow)
-![Flask](https://img.shields.io/badge/Flask-Web%20App-green?style=flat-square&logo=flask)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
+<img src="https://img.shields.io/badge/🧠-NeuroSnap-1a237e?style=for-the-badge&labelColor=283593" alt="NeuroSnap"/>
 
-A deep learning-based medical image analysis system that detects brain tumors from MRI scan images using Convolutional Neural Networks (CNN). The system predicts whether a brain MRI scan shows a **tumor** or is **normal**, with a confidence score — all through a simple web interface.
+# NeuroSnap — Brain Tumor Detection
+
+**AI-powered MRI analysis using Convolutional Neural Networks**
+
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13+-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://tensorflow.org)
+[![Flask](https://img.shields.io/badge/Flask-2.3+-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
+[![Keras](https://img.shields.io/badge/Keras-2.x-D00000?style=flat-square&logo=keras&logoColor=white)](https://keras.io)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-22c55e?style=flat-square)]()
+
+[Live Demo](#deployment) · [Quick Start](#quick-start) · [Dataset](#dataset) · [Model](#model-architecture) · [Deployment](#deployment)
 
 ---
 
-## 📌 Table of Contents
+> ⚠️ **Medical Disclaimer:** NeuroSnap is built for **educational and research purposes only**.  
+> It is **not** a certified medical device and must **never** be used as a substitute for professional medical diagnosis.
+
+</div>
+
+---
+
+## 📋 Table of Contents
 
 - [About the Project](#about-the-project)
-- [Demo](#demo)
+- [Features](#features)
 - [Project Structure](#project-structure)
 - [How It Works](#how-it-works)
-- [Technologies Used](#technologies-used)
-- [Dataset](#dataset)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Model Architecture](#model-architecture)
-- [Results](#results)
+- [Dataset](#dataset)
+- [Quick Start](#quick-start)
+- [Installation](#installation)
+- [Training the Model](#training-the-model)
+- [Running the App](#running-the-app)
+- [Deployment](#deployment)
+- [API Routes](#api-routes)
+- [Technologies Used](#technologies-used)
+- [Known Issues & Fixes](#known-issues--fixes)
 - [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
 - [License](#license)
 
 ---
 
-## 📖 About the Project
+## 🧠 About the Project
 
-Brain tumors are one of the most critical and life-threatening diseases. Early and accurate detection is essential for effective treatment. Manual analysis of MRI scans by radiologists is time-consuming and prone to human error.
+**NeuroSnap** is a full-stack deep learning web application that detects brain tumors from MRI scan images using a custom Convolutional Neural Network (CNN). The system:
 
-This project automates the detection process using a **Convolutional Neural Network (CNN)** trained on real MRI brain scan images. The trained model is deployed through a **Flask web application**, allowing anyone to upload an MRI image and receive an instant prediction.
+- Accepts MRI scan images via a web interface
+- Preprocesses and analyses them through a trained CNN
+- Returns a clear prediction — **Tumor Detected** or **Normal Brain**
+- Shows a **confidence score** and **raw tumor probability**
+- Maintains a **session-based scan history** and dashboard
 
-### Key Highlights
-
-- Binary classification: **Tumor Detected** vs **Normal Brain**
-- Confidence score displayed with every prediction
-- MRI image preview in the web app
-- Trained model saved as `.h5` for reuse
-- Clean, beginner-friendly codebase with comments throughout
+Built as a complete end-to-end ML engineering project covering data preprocessing, model training, evaluation, and web deployment.
 
 ---
 
-## 🎬 Demo
+## ✨ Features
 
-```
-1. Upload an MRI scan image via the web interface
-2. The model processes and analyzes the image
-3. Result is displayed: "Tumor Detected" or "Normal Brain"
-4. Confidence percentage is shown alongside the result
-```
-
-> Web app runs locally at: `http://localhost:5000`
+| Feature | Description |
+|---|---|
+| 🔍 MRI Analysis | Upload any JPG/PNG/BMP MRI scan and get instant prediction |
+| 📊 Confidence Score | See exactly how confident the model is |
+| 📈 Dashboard | Track all scans in the current session with stats |
+| 🔁 Scan History | Last 20 scans stored in session |
+| 🎨 Professional UI | Responsive design built with Bootstrap 5 |
+| ⚡ Fast Inference | Model cached in memory — no reload on every request |
+| 🛡️ Input Validation | Pillow-based image verification before inference |
+| 📝 Logging | Rotating file logs for all requests and errors |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-brain_tumor_detection/
+NeuroSnap/
 │
-├── app/                        # Flask web application
-│   ├── __init__.py             # App factory
-│   ├── routes.py               # URL routes and prediction logic
+├── app/                            # Flask web application
+│   ├── __init__.py                 # App factory + CSP headers + logging
+│   ├── routes.py                   # URL routes: /, /predict, /dashboard, /about
 │   └── templates/
-│       └── index.html          # Frontend upload page
+│       ├── base.html               # Shared layout with navbar and footer
+│       ├── index.html              # MRI upload page with drag-and-drop
+│       ├── result.html             # Prediction result with confidence gauge
+│       ├── dashboard.html          # Scan stats, charts, history table
+│       └── about.html             # Project info and CNN architecture visual
 │
-├── model/                      # ML model scripts
-│   ├── model_builder.py        # CNN architecture definition
-│   ├── train.py                # Model training script
-│   └── predict.py              # Single image prediction
+├── model/                          # Deep learning model
+│   ├── __init__.py
+│   ├── model_builder.py            # CNN architecture (Functional API)
+│   ├── train.py                    # Training pipeline with class balancing
+│   └── predict.py                  # Inference with 3-strategy model loading
 │
-├── preprocessing/              # Data preparation
-│   └── preprocess.py           # Load, resize, normalize, augment, split
+├── preprocessing/                  # Data pipeline
+│   ├── __init__.py
+│   └── preprocess.py               # Load, balance, augment, split dataset
 │
-├── data/                       # Dataset (not pushed to GitHub)
-│   ├── tumor/                  # MRI images with tumor (155 images)
-│   └── no_tumor/               # Normal MRI images (98 images)
+├── data/                           # Dataset (not committed to Git)
+│   ├── tumor/                      # MRI images WITH tumor (155 images)
+│   └── no_tumor/                   # Normal MRI images (98 images)
 │
-├── saved_model/                # Trained model output
-│   └── model.h5                # Saved after training (not pushed to GitHub)
+├── saved_model/                    # Trained model output (not committed to Git)
+│   ├── model.h5                    # Best model weights (saved during training)
+│   └── threshold.json              # Tuned decision threshold (saved during training)
 │
-├── static/                     # Static assets
-│   ├── uploads/                # Temporarily stores uploaded images
-│   ├── accuracy_plot.png       # Training accuracy graph
-│   └── loss_plot.png           # Training loss graph
+├── static/
+│   ├── neurosnap.css               # Custom styles
+│   ├── neurosnap.js                # Upload preview, spinner, flash auto-dismiss
+│   ├── uploads/                    # Temporarily stores uploaded MRI images
+│   ├── accuracy.png                # Training accuracy plot (generated)
+│   ├── loss.png                    # Training loss plot (generated)
+│   └── confusion_matrix.png        # Confusion matrix (generated)
 │
 ├── notebooks/
-│   └── exploration.ipynb       # EDA and experiments
+│   └── exploration.ipynb           # EDA and experimentation
 │
-├── requirements.txt            # Python dependencies
-├── run.py                      # App entry point
-└── README.md                   # Project documentation
+├── .github/
+│   └── workflows/
+│       └── python-package-conda.yml # CI workflow
+│
+├── .gitignore
+├── requirements.txt
+├── run.py                          # App entry point → python run.py
+└── README.md
 ```
 
 ---
@@ -101,46 +134,67 @@ brain_tumor_detection/
 ## ⚙️ How It Works
 
 ```
-MRI Image Input
-      ↓
-Preprocessing (resize 128×128, normalize, augment)
-      ↓
-CNN Model (Conv2D → MaxPool → Dropout → Dense → Softmax)
-      ↓
-Prediction Output
-      ↓
-"Tumor Detected" (with confidence %) OR "Normal Brain"
+User uploads MRI image
+        ↓
+Flask receives file → validates format (Pillow verify)
+        ↓
+OpenCV loads image → resize 128×128 → normalize [0,1]
+        ↓
+CNN model runs inference → outputs [P(no_tumor), P(tumor)]
+        ↓
+P(tumor) compared against tuned threshold
+        ↓
+     ┌──────────────────────────────┐
+     │  P(tumor) ≥ threshold        │   →   ⚠️  Tumor Detected
+     │  P(tumor) < threshold        │   →   ✅  Normal Brain
+     └──────────────────────────────┘
+        ↓
+Result + confidence + tumor % shown to user
+Scan saved to session history → Dashboard updated
 ```
 
-### CNN Concept
+### Class Imbalance Fix
 
-The CNN extracts spatial features from MRI images in three stages:
+The dataset has **155 tumor vs 98 no-tumor** images (61/39 split). Without correction, the model learns to always predict "Tumor" for a free 61% accuracy. NeuroSnap fixes this three ways:
 
-1. **Feature Extraction** — Conv2D layers detect edges, textures, and abnormal tissue patterns
-2. **Downsampling** — MaxPooling layers reduce spatial dimensions, retaining key features
-3. **Classification** — Dense layers use extracted features to classify tumor vs normal
-
-The final layer uses **Softmax** activation:
-
-```
-y = softmax(Wx + b)
-```
+1. **Oversampling** — minority class images duplicated to match majority count
+2. **Class weights** — loss function penalises tumor-class mistakes more during training
+3. **Threshold tuning** — after training, threshold is swept from 0.10–0.90 and the value maximising macro-F1 on the validation set is saved to `threshold.json`
 
 ---
 
-## 🛠️ Technologies Used
+## 🏗️ Model Architecture
 
-| Technology | Purpose |
+Built using **Keras Functional API** (not Sequential) to avoid the `batch_shape` serialisation bug in TF 2.16+.
+
+```
+Input (128, 128, 3)
+    │
+    ├── Conv2D(32, 3×3, relu) → BatchNorm → MaxPool(2×2)
+    │
+    ├── Conv2D(64, 3×3, relu) → BatchNorm → MaxPool(2×2)
+    │
+    ├── Conv2D(128, 3×3, relu) → BatchNorm → MaxPool(2×2)
+    │
+    ├── Conv2D(256, 3×3, relu) → BatchNorm → MaxPool(2×2)
+    │
+    ├── Flatten
+    │
+    ├── Dense(256, relu) → Dropout(0.5)
+    │
+    ├── Dense(128, relu) → Dropout(0.3)
+    │
+    └── Dense(2, softmax)  →  [P(no_tumor), P(tumor)]
+```
+
+| Parameter | Value |
 |---|---|
-| Python 3.8+ | Core programming language |
-| TensorFlow 2.x | Deep learning framework |
-| Keras | High-level model building API |
-| OpenCV | Image loading and preprocessing |
-| NumPy | Numerical operations |
-| Matplotlib | Plotting accuracy/loss graphs |
-| Flask | Web application framework |
-| scikit-learn | Train/test split, metrics |
-| Pillow | Image handling in Flask |
+| Input size | 128 × 128 × 3 |
+| Optimizer | Adam (lr=1e-3) |
+| Loss | Categorical Crossentropy |
+| Epochs | Up to 50 (EarlyStopping) |
+| Batch size | 16 |
+| Callbacks | ModelCheckpoint, EarlyStopping, ReduceLROnPlateau |
 
 ---
 
@@ -148,188 +202,406 @@ y = softmax(Wx + b)
 
 **Source:** [Kaggle — Brain MRI Images for Brain Tumor Detection](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection)
 
-| Class | Folder | Images |
+| Class | Folder | Count |
 |---|---|---|
-| Tumor | `data/tumor/` | 155 |
-| No Tumor | `data/no_tumor/` | 98 |
-| **Total** | | **253** |
+| No Tumor | `data/no_tumor/` | 98 images |
+| Tumor | `data/tumor/` | 155 images |
+| **Total** | | **253 images** |
+
+> The dataset is **not committed to Git** (too large). Follow [Dataset Setup](#dataset-setup) below.
 
 ### Dataset Setup
 
-1. Download from Kaggle (free account required)
-2. Extract the zip file
-3. Copy images from `yes/` → `data/tumor/`
-4. Copy images from `no/` → `data/no_tumor/`
-
-> **Note:** The `data/` folder is excluded from this repository due to size. You must download and set it up manually as described above.
+1. Go to [Kaggle Brain MRI Dataset](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection)
+2. Click **Download** (free Kaggle account required)
+3. Extract the zip file
+4. Copy images:
+   - `yes/` folder images → `data/tumor/`
+   - `no/` folder images → `data/no_tumor/`
 
 ---
 
-## 🚀 Installation
+## 🚀 Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/YOUR_USERNAME/NeuroSnap.git
+cd NeuroSnap
+
+# 2. Create virtual environment with Python 3.11
+py -3.11 -m venv venv          # Windows
+python3.11 -m venv venv        # Mac/Linux
+
+# 3. Activate
+venv\Scripts\activate          # Windows
+source venv/bin/activate       # Mac/Linux
+
+# 4. Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# 5. Set up dataset (see Dataset section above)
+
+# 6. Train the model
+python -m model.train
+
+# 7. Run the app
+python run.py
+```
+
+Open → **http://localhost:5000**
+
+---
+
+## 🔧 Installation
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- pip
-- Git
+| Requirement | Version |
+|---|---|
+| Python | **3.11** (3.12+ NOT supported by TensorFlow) |
+| pip | Latest |
+| Git | Any |
+| RAM | 4GB minimum, 8GB recommended |
 
-### Step 1 — Clone the repository
+### Step-by-step
 
+**1. Clone**
 ```bash
-git clone https://github.com/YOUR_USERNAME/brain-tumor-detection.git
-cd brain-tumor-detection
+git clone https://github.com/YOUR_USERNAME/NeuroSnap.git
+cd NeuroSnap
 ```
 
-### Step 2 — Create a virtual environment (recommended)
-
+**2. Python 3.11 virtual environment**
 ```bash
 # Windows
-python -m venv venv
+py -3.11 -m venv venv
 venv\Scripts\activate
 
 # Mac/Linux
-python3 -m venv venv
+python3.11 -m venv venv
 source venv/bin/activate
 ```
 
-### Step 3 — Install dependencies
-
+**3. Install packages**
 ```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### Step 4 — Set up the dataset
-
-Download the dataset from Kaggle and place images in:
-```
-data/tumor/       ← tumor MRI images
-data/no_tumor/    ← normal MRI images
+**4. Verify TensorFlow**
+```bash
+python -c "import tensorflow as tf; print(tf.__version__)"
+# Expected: 2.x.x
 ```
 
-### Step 5 — Train the model
+---
+
+## 🏋️ Training the Model
 
 ```bash
-python model/train.py
+python -m model.train
 ```
 
-This will:
-- Preprocess and split the dataset
-- Train the CNN model
-- Save the model to `saved_model/model.h5`
-- Save accuracy and loss plots to `static/`
+Training output:
+```
+[preprocess] Layout A detected → data/tumor  |  data/no_tumor
+[preprocess] After oversampling → no_tumor=155, tumor=155
+[preprocess] Split → train=217, val=46, test=47
+[preprocess] Class weights: {0: 1.0, 1: 1.0}
 
-Training takes approximately **5–15 minutes** depending on your machine.
+Epoch 1/50
+14/14 ━━━━━━━━━━━━━━━━━━━━ loss: 0.6821 - accuracy: 0.5819
+...
+Epoch 28/50
+14/14 ━━━━━━━━━━━━━━━━━━━━ loss: 0.1423 - accuracy: 0.9491
 
-### Step 6 — Run the web app
+Best threshold = 0.42  (macro-F1 = 0.9234)
+
+Test Accuracy : 91.48%
+
+Classification Report:
+              precision  recall  f1-score
+   no_tumor      0.93    0.89      0.91
+      tumor       0.91    0.94      0.92
+
+✅ Training complete!
+```
+
+> ⏱ Training takes **10–20 minutes** on CPU depending on your machine.
+
+### After training, these files are generated:
+- `saved_model/model.h5` — best model weights
+- `saved_model/threshold.json` — optimal decision threshold
+- `static/accuracy.png` — accuracy curve
+- `static/loss.png` — loss curve
+- `static/confusion_matrix.png` — confusion matrix
+
+---
+
+## 🌐 Running the App
 
 ```bash
 python run.py
 ```
 
-Open your browser and go to: `http://localhost:5000`
+```
+🧠 NeuroSnap starting …
+   Open http://localhost:5000 in your browser
+ * Running on http://0.0.0.0:5000
+ * Debug mode: on
+```
+
+### Pages
+
+| Route | Page | Description |
+|---|---|---|
+| `/` | Home | MRI upload form with scan history |
+| `/predict` | Result | Prediction result with confidence |
+| `/dashboard` | Dashboard | Stats, charts, full scan history |
+| `/about` | About | Project info and CNN diagram |
 
 ---
 
-## 💻 Usage
+## ☁️ Deployment
 
-1. Open `http://localhost:5000` in your browser
-2. Click **Choose File** and upload an MRI brain scan image (`.jpg`, `.jpeg`, `.png`)
-3. Click **Predict**
-4. The result is displayed:
-   - ✅ **Normal Brain** — No tumor detected
-   - ⚠️ **Tumor Detected** — Tumor present, with confidence score
+### Option 1 — Render (Recommended, Free)
 
-### Predict from command line
+1. Push your code to GitHub (see [Git Setup](#git-setup))
+
+2. Go to [render.com](https://render.com) → **New Web Service**
+
+3. Connect your GitHub repo
+
+4. Configure:
+   ```
+   Name:          neurosnap
+   Runtime:       Python 3
+   Build Command: pip install -r requirements.txt
+   Start Command: gunicorn run:app
+   ```
+
+5. Add environment variable:
+   ```
+   SECRET_KEY = your-random-secret-key-here
+   ```
+
+6. Click **Deploy** — live URL in ~3 minutes
+
+> ⚠️ The model.h5 file (~100MB) must be committed or uploaded separately.  
+> Render's free tier has 512MB RAM — sufficient for inference.
+
+---
+
+### Option 2 — Railway
+
+1. Install Railway CLI:
+   ```bash
+   npm install -g @railway/cli
+   railway login
+   ```
+
+2. Deploy:
+   ```bash
+   railway init
+   railway up
+   ```
+
+3. Set environment variable:
+   ```bash
+   railway variables set SECRET_KEY=your-secret-key
+   ```
+
+---
+
+### Option 3 — PythonAnywhere (Free tier)
+
+1. Sign up at [pythonanywhere.com](https://www.pythonanywhere.com)
+2. Upload your project via Files tab or Git clone
+3. Create a new Web App → Flask → Python 3.11
+4. Set WSGI file to point to `run.py`
+5. Install requirements in a virtualenv via Bash console
+
+---
+
+### Option 4 — Local (Production mode)
 
 ```bash
-python model/predict.py --image path/to/mri_scan.jpg
+pip install gunicorn
+gunicorn --workers 2 --bind 0.0.0.0:5000 run:app
 ```
 
 ---
 
-## 🧠 Model Architecture
+### Pre-deployment checklist
 
-```
-Input Layer        →  (128, 128, 3)
-Conv2D (32)        →  ReLU activation
-MaxPooling2D       →  (2×2)
-Conv2D (64)        →  ReLU activation
-MaxPooling2D       →  (2×2)
-Conv2D (128)       →  ReLU activation
-MaxPooling2D       →  (2×2)
-Flatten
-Dense (256)        →  ReLU activation
-Dropout (0.5)      →  Prevents overfitting
-Dense (2)          →  Softmax → [tumor, no_tumor]
-```
+```bash
+# Add gunicorn to requirements
+echo "gunicorn>=21.0.0" >> requirements.txt
 
-**Optimizer:** Adam  
-**Loss Function:** Categorical Crossentropy  
-**Metrics:** Accuracy  
-**Epochs:** 25  
-**Batch Size:** 32  
+# Set a real secret key
+export SECRET_KEY="your-very-long-random-secret-key"
+
+# Test production mode locally
+gunicorn run:app
+```
 
 ---
 
-## 📈 Results
+## 🗂️ Git Setup
 
-| Metric | Value |
-|---|---|
-| Training Accuracy | ~95% |
-| Validation Accuracy | ~88–92% |
-| Test Accuracy | ~88–90% |
+### First push
 
-> Actual results may vary depending on dataset split and training run.
+```bash
+git init
+git add .
+git commit -m "Initial commit: NeuroSnap Brain Tumor Detection"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/NeuroSnap.git
+git push -u origin main
+```
 
-Training graphs (accuracy and loss curves) are saved to `static/` after training.
+### Important — what is NOT pushed to Git
+
+The `.gitignore` excludes these (too large / generated):
+
+```
+data/           ← dataset (download from Kaggle separately)
+saved_model/    ← model.h5 and threshold.json (generated by training)
+venv/           ← virtual environment
+__pycache__/    ← Python bytecode
+static/uploads/ ← uploaded MRI images
+static/*.png    ← training plots (generated)
+```
+
+### Pushing the trained model (for deployment)
+
+Since `model.h5` can be ~100MB, use **Git LFS**:
+
+```bash
+# Install Git LFS
+git lfs install
+git lfs track "*.h5"
+git add .gitattributes
+git add saved_model/model.h5
+git add saved_model/threshold.json
+git commit -m "Add trained model"
+git push
+```
+
+Or alternatively, upload `model.h5` manually via your deployment platform's dashboard.
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Version | Purpose |
+|---|---|---|
+| Python | 3.11 | Core language |
+| TensorFlow | 2.13+ | Deep learning framework |
+| tf_keras | 2.13+ | Keras 2 API compatibility |
+| Keras | 2.x | Model building and training |
+| OpenCV | 4.8+ | Image loading and preprocessing |
+| NumPy | 1.24+ | Numerical operations |
+| scikit-learn | 1.3+ | Metrics, class weights, splitting |
+| Matplotlib | 3.7+ | Training plots |
+| Flask | 2.3+ | Web framework |
+| Werkzeug | 2.3+ | Secure file uploads |
+| Pillow | 10.0+ | Image verification |
+| Bootstrap | 5.3 | Frontend UI |
+| Chart.js | CDN | Dashboard charts |
+| Gunicorn | 21.0+ | Production WSGI server |
+
+---
+
+## 🐛 Known Issues & Fixes
+
+### `TypeError: Unrecognized keyword arguments: ['batch_shape']`
+**Cause:** Model was saved by TF 2.16+ with incompatible config format.  
+**Fix:** Delete `saved_model/model.h5` and retrain:
+```bash
+python -m model.train
+```
+
+### Model predicts Tumor for every image
+**Cause:** Class imbalance — dataset has 61% tumor images.  
+**Fix:** Already handled in `preprocess.py` (oversampling + class_weight) and `train.py` (threshold tuning). Ensure you retrain with the latest code.
+
+### `tensorflow` not found / install fails
+**Cause:** Python 3.12+ is not supported.  
+**Fix:** Use Python **3.11** specifically:
+```bash
+py -3.11 -m venv venv
+```
+
+### Port 5000 already in use
+```bash
+# Windows
+netstat -ano | findstr :5000
+taskkill /PID <PID> /F
+
+# Mac/Linux
+lsof -i :5000 && kill -9 <PID>
+
+# Or change port in run.py
+app.run(port=5001)
+```
 
 ---
 
 ## 🔮 Future Enhancements
 
-- [ ] Multi-class classification (Glioma, Meningioma, Pituitary, No Tumor)
-- [ ] Tumor localization with bounding boxes (object detection)
-- [ ] Tumor size estimation
-- [ ] 3D MRI volume analysis
-- [ ] Grad-CAM visualization (heatmap showing where the model looks)
-- [ ] REST API for hospital system integration
-- [ ] Mobile app (React Native or Flutter)
-- [ ] Deploy to cloud (Heroku / AWS / Render)
+- [ ] **Multi-class classification** — Glioma, Meningioma, Pituitary, No Tumor
+- [ ] **Grad-CAM heatmaps** — visualise where the model is looking on the MRI
+- [ ] **Tumor segmentation** — outline the tumor region on the scan
+- [ ] **3D MRI analysis** — volumetric scan support
+- [ ] **REST API** — JSON endpoint for hospital system integration
+- [ ] **Mobile app** — React Native / Flutter frontend
+- [ ] **Model versioning** — MLflow or DVC integration
+- [ ] **GPU training** — CUDA support for faster training
+- [ ] **Transfer learning** — Fine-tune EfficientNet or ResNet50
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how:
+Contributions are welcome!
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Make your changes and commit: `git commit -m "Add your feature"`
-4. Push to your branch: `git push origin feature/your-feature-name`
-5. Open a Pull Request
+```bash
+# Fork the repo, then:
+git checkout -b feature/your-feature-name
+git commit -m "feat: add your feature"
+git push origin feature/your-feature-name
+# Open a Pull Request
+```
 
-Please make sure your code is clean and well-commented.
-
----
-
-## ⚠️ Disclaimer
-
-This project is built for **educational purposes only**. It is not intended for clinical or medical use. Always consult a qualified medical professional for diagnosis and treatment.
+Please ensure:
+- Code is clean and well-commented
+- No dataset or model files are committed
+- `requirements.txt` is updated if new packages are added
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.  
+See [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 👨‍💻 Author
 
-Built by Swetha - CyberSecurity student as a Deep Learning project.
+**NeuroSnap** — built from scratch as a complete ML engineering project.
 
-If you found this helpful, give it a ⭐ on GitHub!
+> If this helped you, give it a ⭐ on GitHub!
 
 ---
 
-*"Artificial intelligence in healthcare is not about replacing doctors — it's about empowering them."*
+<div align="center">
+
+*"The goal of AI in healthcare is not to replace the physician,*  
+*but to give the physician superpowers."*
+
+**Built with ❤️ using Python, TensorFlow, and Flask**
+
+</div>
