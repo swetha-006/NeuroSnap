@@ -6,16 +6,24 @@ __pycache__/
 .env
 venv/
 env/
+*.egg-info/
 
-# Dataset (too large for GitHub)
-data/
+# Dataset (too large for GitHub - download from Kaggle)
+data/tumor/*
+data/no_tumor/*
+!data/tumor/.gitkeep
+!data/no_tumor/.gitkeep
 
-# Trained model (large file)
-saved_model/
-*.h5
+# Trained model weights (large - use Git LFS or upload manually)
+saved_model/model.h5
+saved_model/model.h5.backup
 
-# Flask uploads
-static/uploads/
+# Keep threshold.json (small, needed for deployment)
+!saved_model/threshold.json
+
+# Flask uploads (user uploaded images - not needed in repo)
+static/uploads/*
+!static/uploads/.gitkeep
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
@@ -23,6 +31,21 @@ static/uploads/
 # OS files
 .DS_Store
 Thumbs.db
+.DS_Store?
+._*
 
-# Plots (regenerated on training)
-static/*.png
+# Training plots (regenerated)
+static/accuracy.png
+static/loss.png
+static/confusion_matrix.png
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Render
+.render/

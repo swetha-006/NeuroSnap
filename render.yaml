@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: neurosnap
+    runtime: python
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn --config gunicorn.conf.py run:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: TF_USE_LEGACY_KERAS
+        value: "1"
+      - key: TF_ENABLE_ONEDNN_OPTS
+        value: "0"
+      - key: PYTHON_VERSION
+        value: "3.11.9"
