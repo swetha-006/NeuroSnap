@@ -628,3 +628,206 @@ Then: python run.py
 2026-05-18 02:20:09,413 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:20:09] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
 2026-05-18 02:20:09,720 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:20:09] "GET /static/uploads/20260517204949-f974cf31-Y182.JPG HTTP/1.1" 200 -
 2026-05-18 02:20:09,722 INFO werkzeug: 127.0.0.1 - - [18/May/2026 02:20:09] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 11:40:41,039 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 11:40:41,040 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 11:40:44,831 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:44] "GET / HTTP/1.1" 200 -
+2026-05-20 11:40:45,121 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:45] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 11:40:45,167 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:45] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 11:40:58,551 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 11:40:59,123 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 11:40:59,136 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+2026-05-20 11:40:59,651 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:59] "POST /predict HTTP/1.1" 200 -
+2026-05-20 11:40:59,965 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:59] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 11:40:59,967 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:59] "GET /static/uploads/20260520061055-277ecf2a-demo_tu.jpg HTTP/1.1" 200 -
+2026-05-20 11:40:59,969 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:40:59] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 11:41:12,392 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:12] "GET / HTTP/1.1" 200 -
+2026-05-20 11:41:12,712 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:12] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 11:41:12,713 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:12] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 11:41:19,593 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:19] "POST /predict HTTP/1.1" 200 -
+2026-05-20 11:41:19,906 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:19] "GET /static/uploads/20260520061119-797558a3-demo_healthy.jpg HTTP/1.1" 200 -
+2026-05-20 11:41:19,907 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:19] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 11:41:19,908 INFO werkzeug: 127.0.0.1 - - [20/May/2026 11:41:19] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:16:59,189 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 12:16:59,190 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 12:16:59,190 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:16:59,415 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:16:59,417 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:17:02,929 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:02] "GET / HTTP/1.1" 200 -
+2026-05-20 12:17:03,201 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:03] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:17:03,260 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:03] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:17:14,415 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 12:17:14,771 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 12:17:14,783 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+2026-05-20 12:17:15,185 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:15] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:17:15,506 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:15] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:17:15,507 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:15] "GET /static/uploads/20260520064711-3d673c35-demo_tu.jpg HTTP/1.1" 200 -
+2026-05-20 12:17:15,509 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:17:15] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:19:26,981 INFO werkzeug:  * Detected change in 'F:\\NeuroSnap\\fix_threshold.py', reloading
+2026-05-20 12:19:27,407 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:26:26,412 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 12:26:26,413 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 12:26:26,413 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:26:26,634 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:26:26,636 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:26:40,235 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:40] "GET / HTTP/1.1" 200 -
+2026-05-20 12:26:40,522 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:40] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:26:40,556 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:40] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:26:52,817 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 12:26:53,190 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 12:26:53,324 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2026-05-20 12:26:55,074 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:55] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:26:55,401 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:55] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:26:55,404 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:55] "GET /static/uploads/20260520065650-b6aead56-demo_tu.jpg HTTP/1.1" 200 -
+2026-05-20 12:26:55,405 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:26:55] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:29:06,608 INFO werkzeug:  * Detected change in 'F:\\NeuroSnap\\debug_single.py', reloading
+2026-05-20 12:29:07,068 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:29:07,319 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:29:07,321 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:35:13,547 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 12:35:13,547 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 12:35:13,548 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:35:13,776 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:35:13,778 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:35:27,032 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:27] "GET / HTTP/1.1" 200 -
+2026-05-20 12:35:27,322 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:27] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:35:27,354 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:27] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:35:48,853 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:48] "GET / HTTP/1.1" 200 -
+2026-05-20 12:35:49,232 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:49] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:35:49,233 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:35:49] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:35:58,765 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 12:35:59,203 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 12:35:59,350 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2026-05-20 12:36:01,143 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:01] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:36:01,470 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:01] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:36:01,471 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:01] "GET /static/uploads/20260520070556-2379b363-demo_tu.jpg HTTP/1.1" 200 -
+2026-05-20 12:36:01,474 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:01] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:36:12,670 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:12] "GET / HTTP/1.1" 200 -
+2026-05-20 12:36:12,992 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:12] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:36:12,993 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:12] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:36:21,302 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:21] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:36:21,619 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:21] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:36:21,621 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:21] "GET /static/uploads/20260520070621-13e4f05d-demo_healthy.jpg HTTP/1.1" 200 -
+2026-05-20 12:36:21,623 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:21] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:36:26,532 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:26] "GET / HTTP/1.1" 200 -
+2026-05-20 12:36:26,855 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:26] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:36:26,856 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:26] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:36:34,772 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:34] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:36:35,098 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:35] "GET /static/uploads/20260520070634-893d4430-demo_tu.jpg HTTP/1.1" 200 -
+2026-05-20 12:36:35,100 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:35] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:36:35,100 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:36:35] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:41:26,824 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 12:41:26,824 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 12:41:26,825 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:41:27,050 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:41:27,053 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:41:31,861 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:31] "GET / HTTP/1.1" 200 -
+2026-05-20 12:41:32,135 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:32] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:41:32,183 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:32] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:41:49,504 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 12:41:49,900 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 12:41:50,034 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2026-05-20 12:41:51,726 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:51] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:41:52,051 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:52] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:41:52,053 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:52] "GET /static/uploads/20260520071146-bb6fb334-test_demo.jpg HTTP/1.1" 200 -
+2026-05-20 12:41:52,054 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:52] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:41:59,880 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:41:59] "GET / HTTP/1.1" 200 -
+2026-05-20 12:42:00,204 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:00] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:42:00,205 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:00] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:42:07,189 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:07] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:42:07,505 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:07] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:42:07,507 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:07] "GET /static/uploads/20260520071207-c97e2006-test.jpg HTTP/1.1" 200 -
+2026-05-20 12:42:07,510 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:07] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:42:18,438 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:18] "GET /dashboard HTTP/1.1" 200 -
+2026-05-20 12:42:18,768 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:18] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:42:18,769 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:42:18] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:45:17,039 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 12:45:17,039 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 12:45:17,040 INFO werkzeug:  * Restarting with stat
+2026-05-20 12:45:17,259 WARNING werkzeug:  * Debugger is active!
+2026-05-20 12:45:17,261 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 12:45:23,437 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:23] "GET / HTTP/1.1" 200 -
+2026-05-20 12:45:23,709 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:23] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:45:23,759 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:23] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 12:45:34,575 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 12:45:34,994 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 12:45:35,132 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2026-05-20 12:45:36,808 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:36] "POST /predict HTTP/1.1" 200 -
+2026-05-20 12:45:37,126 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:37] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 12:45:37,128 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:37] "GET /static/uploads/20260520071531-02a6c1c8-test_demo.jpg HTTP/1.1" 200 -
+2026-05-20 12:45:37,132 INFO werkzeug: 127.0.0.1 - - [20/May/2026 12:45:37] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:36:28,964 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 13:36:28,964 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 13:36:28,966 INFO werkzeug:  * Restarting with stat
+2026-05-20 13:36:29,680 WARNING werkzeug:  * Debugger is active!
+2026-05-20 13:36:29,686 INFO werkzeug:  * Debugger PIN: 580-468-151
+2026-05-20 13:36:32,230 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:32] "GET / HTTP/1.1" 200 -
+2026-05-20 13:36:32,536 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:32] "GET /static/neurosnap.css HTTP/1.1" 200 -
+2026-05-20 13:36:32,543 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:32] "GET /static/neurosnap.js HTTP/1.1" 200 -
+2026-05-20 13:36:53,525 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 13:36:54,060 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 13:36:54,223 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please use tf.compat.v1.nn.fused_batch_norm instead.
+
+2026-05-20 13:36:56,037 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:56] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:36:56,357 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:56] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:36:56,359 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:56] "GET /static/uploads/20260520080649-363f3bf5-Y79.jpg HTTP/1.1" 200 -
+2026-05-20 13:36:56,361 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:36:56] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:37:01,750 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:37:01] "GET / HTTP/1.1" 200 -
+2026-05-20 13:47:29,457 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 13:47:29,457 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 13:47:33,129 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:33] "GET / HTTP/1.1" 200 -
+2026-05-20 13:47:33,423 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:33] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:47:33,449 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:33] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:47:47,127 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 13:47:47,571 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 13:47:47,580 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+2026-05-20 13:47:48,005 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:47:48,320 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:47:48,323 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:47:48,323 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "GET /static/uploads/20260520081744-b4ce63fa-Y46.jpg HTTP/1.1" 200 -

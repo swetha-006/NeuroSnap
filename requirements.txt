@@ -1,10 +1,10 @@
 tensorflow>=2.13.0
-tf_keras>=2.13.0
-opencv-python-headless>=4.8.0
+tf_keras>=2.13.0        # Required for TF 2.21+ compatibility (Keras 2 API)
+opencv-python>=4.8.0
 matplotlib>=3.7.0
 flask>=2.3.0
 numpy>=1.24.0
 scikit-learn>=1.3.0
 Pillow>=10.0.0
 werkzeug>=2.3.0
-gunicorn>=21.2.0
+gunicorn>=21.0.0
