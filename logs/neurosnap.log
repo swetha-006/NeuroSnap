@@ -831,3 +831,70 @@ Then: python run.py
 2026-05-20 13:47:48,320 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
 2026-05-20 13:47:48,323 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
 2026-05-20 13:47:48,323 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:47:48] "GET /static/uploads/20260520081744-b4ce63fa-Y46.jpg HTTP/1.1" 200 -
+2026-05-20 13:48:47,609 INFO werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.139.141.66:5000
+2026-05-20 13:48:47,609 INFO werkzeug: [33mPress CTRL+C to quit[0m
+2026-05-20 13:49:00,470 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:00] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:00,741 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:00] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:00,790 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:00] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:15,815 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+2026-05-20 13:49:16,275 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\backend.py:1400: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1.executing_eagerly_outside_functions instead.
+
+2026-05-20 13:49:16,284 WARNING tensorflow: From F:\NeuroSnap\venv\Lib\site-packages\tf_keras\src\layers\pooling\max_pooling2d.py:161: The name tf.nn.max_pool is deprecated. Please use tf.nn.max_pool2d instead.
+
+2026-05-20 13:49:16,667 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:16] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:49:16,991 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:16] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:16,993 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:16] "GET /static/uploads/20260520081913-ed66b1f6-4_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:49:16,993 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:16] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:21,081 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:21] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:21,400 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:21] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:21,401 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:21] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:27,560 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:27] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:49:27,873 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:27] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:27,875 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:27] "GET /static/uploads/20260520081927-bfce9f06-7_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:49:27,877 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:27] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:29,936 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:29] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:30,260 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:30] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:30,261 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:30] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:35,807 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:35] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:49:36,120 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:36] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:36,121 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:36] "GET /static/uploads/20260520081935-73b810b9-10_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:49:36,122 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:36] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:38,057 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:38] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:38,382 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:38] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:38,383 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:38] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:46,124 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:46] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:49:46,438 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:46] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:46,440 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:46] "GET /static/uploads/20260520081946-86bf5388-N2.JPG HTTP/1.1" 200 -
+2026-05-20 13:49:46,443 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:46] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:48,235 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:48] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:48,556 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:48] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:48,558 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:48] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:54,856 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:54] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:49:55,171 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:55] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:55,172 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:55] "GET /static/uploads/20260520081954-b2b9c4f6-4_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:49:55,176 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:55] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:49:56,610 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:56] "GET / HTTP/1.1" 200 -
+2026-05-20 13:49:56,933 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:56] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:49:56,934 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:49:56] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:50:18,114 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:18] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:50:18,434 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:18] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:50:18,436 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:18] "GET /static/uploads/20260520082018-6a482323-11_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:50:18,440 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:18] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:50:20,163 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:20] "GET / HTTP/1.1" 200 -
+2026-05-20 13:50:20,485 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:20] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:50:20,486 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:20] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:50:26,596 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:26] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:50:26,912 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:26] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:50:26,913 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:26] "GET /static/uploads/20260520082026-88b5aa34-29_no.jpg HTTP/1.1" 200 -
+2026-05-20 13:50:26,914 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:26] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:50:29,301 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:29] "GET / HTTP/1.1" 200 -
+2026-05-20 13:50:29,626 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:29] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:50:29,626 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:29] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
+2026-05-20 13:50:36,976 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:36] "POST /predict HTTP/1.1" 200 -
+2026-05-20 13:50:37,304 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:37] "[36mGET /static/neurosnap.css HTTP/1.1[0m" 304 -
+2026-05-20 13:50:37,305 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:37] "GET /static/uploads/20260520082036-77fb3a8d-1_no.jpeg HTTP/1.1" 200 -
+2026-05-20 13:50:37,307 INFO werkzeug: 127.0.0.1 - - [20/May/2026 13:50:37] "[36mGET /static/neurosnap.js HTTP/1.1[0m" 304 -
